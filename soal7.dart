@@ -9,6 +9,16 @@ class Kendaraan {
   void bergerak() {
     stdout.write('Kendaraan ini bergerak.\n');
   }
+
+  String deskripsiKecepatan() {
+    if (kecepatan < 30) {
+      return 'lambat';
+    } else if (kecepatan < 60) {
+      return 'normal';
+    } else {
+      return 'cepat';
+    }
+  }
 }
 
 class Mobil extends Kendaraan {
@@ -16,7 +26,8 @@ class Mobil extends Kendaraan {
 
   @override
   void bergerak() {
-    stdout.write('Mobil $nama bergerak cepat di jalan dengan kecepatan $kecepatan km/jam.\n');
+    String kondisiKecepatan = deskripsiKecepatan();
+    stdout.write('Mobil $nama bergerak $kondisiKecepatan di jalan dengan kecepatan $kecepatan km/jam.\n');
   }
 }
 
@@ -25,6 +36,7 @@ class Motor extends Kendaraan {
 
   @override
   void bergerak() {
-    stdout.write('Motor $nama bergerak dengan kecepatan $kecepatan km/jam.\n');
+    String kondisiKecepatan = deskripsiKecepatan();
+    stdout.write('Motor $nama bergerak $kondisiKecepatan di jalan dengan kecepatan $kecepatan km/jam.\n');
   }
 }
